@@ -21,6 +21,7 @@
     <div v-else>
 
         <div v-for="book in data" class="book">
+            <h2>Id: {{ book.id }}</h2>
             <h2>Title: {{ book.title }}</h2>
             <h2>Description: {{ book.description }}</h2>
             <!-- <h2>Author : {{ book.author }}</h2> -->
