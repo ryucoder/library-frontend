@@ -24,11 +24,8 @@
             <h2>Id: {{ book.id }}</h2>
             <h2>Title: {{ book.title }}</h2>
             <h2>Description: {{ book.description }}</h2>
-            <!-- <h2>Author : {{ book.author }}</h2> -->
             <h2>Recommended : {{ book.is_recommended }}</h2>
             <h2>Average Rating : {{ book.avg_rating }}</h2>
-            <!-- 
-            <li><NuxtLink target="_blank" :to="{ name: 'books' + "/" + "",  params: { id: book.id } }">View Details</NuxtLink></li> -->
 
             <NuxtLink :to="'books' + '/' + book.id" target="_blank">
                 View Details
