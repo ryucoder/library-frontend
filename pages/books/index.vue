@@ -6,7 +6,12 @@
     </div>
 
     <div>
-        <h1> Book List Page</h1>
+        <h1> Book List Page
+
+            <NuxtLink to='/books/create' class="createLink">
+                Add New Book
+            </NuxtLink>
+        </h1>
     </div>
 
     <div v-if="data == null">
@@ -61,5 +66,9 @@ var { data } = await useFetch(currentUrl);
     border: 1px solid red;
     margin: 15px 0;
     padding: 5px;
+}
+
+.createLink {
+    float: right;
 }
 </style>
