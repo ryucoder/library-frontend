@@ -43,6 +43,9 @@
 // import { onMounted, onBeforeMount } from 'vue'
 
 // // NOTE: Need to find a way to update the prop of component from the data of lifecycle hook
+
+// var booksData = ref();
+
 // onMounted(async () => {
 //     console.log("onMounted");
 //     console.log(`the component is now onMounted.`);
@@ -55,10 +58,8 @@ const currentUrl = runtimeConfig.public.apiBase + "books/";
 
 // console.log(runtimeConfig.public.apiBase)
 // console.log(currentUrl)
-// var booksData = ref();
 
 var { data } = await useFetch(currentUrl);
-
 
 </script>
 

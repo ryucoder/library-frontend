@@ -16,7 +16,7 @@
         </pre>
     </div>
 
-    <form @submit.prevent="handleSubmit()">
+    <form @submit.prevent="handleSubmit()" method="post">
         <div>
             <p>Title: </p>
             <input v-model="form.title" placeholder="Enter the title of the book" />
@@ -40,38 +40,52 @@
 const runtimeConfig = useRuntimeConfig()
 const currentUrl = runtimeConfig.public.apiBase + "books/"
 
-const DEFAULT_VALUE = {
+var DEFAULT_VALUE = {
     title: "",
     description: "",
     is_recommended: false,
 }
 
-var form = ref(DEFAULT_VALUE)
+var form = reactive(DEFAULT_VALUE)
 
 async function handleSubmit() {
-    console.log("\n");
-    console.log("\n");
-    console.log("LOGGED");
-    console.log("form.value");
-    console.log(form.value);
 
-    const book = await $fetch(currentUrl, {
-        method: 'POST',
-        body: form.value
-    })
-    
-    
-    // .then((data) =>{
-    //     form = ref(DEFAULT_VALUE)
-    // }).catch((error) => {
-    //     alert("FORM ERROR OCCURED");
-    // })
 
-    console.log("LOGGED");
-    console.log("book");
-    console.log(book);
-    console.log(typeof(book));
-    console.log("\n");
-    console.log("\n");
+    // form level validation goes here 
+    // field level validation goes here 
+
+    var formData = false;
+    var formError = false;
+
+    try {
+        const book = await $fetch(currentUrl, {
+            method: 'POST',
+            body: form
+        }).then((data) => {
+            formData = data;
+        }).catch((error) => {
+            formError = error;
+        })
+
+        if (formData) {
+            // Form got submitted successfully
+            
+            // resets form here
+            form.title = "";
+            form.description = "";
+            form.is_recommended = true;
+        }
+
+        if (formError) {
+            // Form submission was unsuccessful
+            // Shows book creation failed server side error alerts here
+        }
+
+    }
+    catch (err) {
+        // shows something failed alert here
+    }
+
 }
+
 </script>
