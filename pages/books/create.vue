@@ -10,11 +10,13 @@
         <h1> Book Create Page</h1>
     </div>
 
+    <!-- 
     <div>
         <pre>
             {{ JSON.stringify(form, null, 2) }}
         </pre>
-    </div>
+    </div> 
+    -->
 
     <form @submit.prevent="handleSubmit()" method="post">
         <div>
