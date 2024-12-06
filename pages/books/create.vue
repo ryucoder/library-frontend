@@ -69,11 +69,11 @@ async function handleSubmit() {
 
         if (formData) {
             // Form got submitted successfully
-            
+
             // resets form here
             form.title = "";
             form.description = "";
-            form.is_recommended = true;
+            form.is_recommended = false;
         }
 
         if (formError) {
