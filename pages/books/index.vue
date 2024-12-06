@@ -1,5 +1,11 @@
 <template>
     <div>
+        <NuxtLink to='/'>
+            Go Back To Index Page
+        </NuxtLink>
+    </div>
+
+    <div>
         <h1> Book List Page</h1>
     </div>
 
@@ -27,15 +33,26 @@
 </template>
 
 <script setup>
-const runtimeConfig = useRuntimeConfig()
-const currentUrl = runtimeConfig.public.apiBase + "books/"
+
+// import { onMounted, onBeforeMount } from 'vue'
+
+// // NOTE: Need to find a way to update the prop of component from the data of lifecycle hook
+// onMounted(async () => {
+//     console.log("onMounted");
+//     console.log(`the component is now onMounted.`);
+//     var  { data }  = await useFetch(currentUrl);
+//     booksData.value = data.value;
+// })
+
+const runtimeConfig = useRuntimeConfig();
+const currentUrl = runtimeConfig.public.apiBase + "books/";
 
 // console.log(runtimeConfig.public.apiBase)
 // console.log(currentUrl)
+// var booksData = ref();
 
-const { data } = await useFetch(currentUrl)
+var { data } = await useFetch(currentUrl);
 
-// console.log(data.value);
 
 </script>
 

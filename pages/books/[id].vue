@@ -1,5 +1,11 @@
 <template>
-    
+
+    <div>
+        <NuxtLink to='/books'>
+            Book List Page
+        </NuxtLink>
+    </div>
+
     <div>
         <h1> Book Detail Page</h1>
         <h1> Book ID {{ book_id }}</h1>
